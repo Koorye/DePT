@@ -34,16 +34,16 @@ vision-language pre-trained models to downstream tasks. A plethora of methods ha
 
 Results reported below show accuracy for base and novel classes for across 11 recognition datasets averaged over 3 seeds.
 
-| Name           | Base Acc. | New Acc. | H     |
-| :------------- | :-------- | :------- | :---- |
-| CoOp           | 81.50     | 69.77    | 75.18 |
-| CoOp w/ DePT   | 83.66     | 71.82    | 77.29 |
-| CoCoOp         | 81.18     | 72.18    | 76.42 |
-| CoCoOp w/ DePT | 83.80     | 72.89    | 77.97 |
-| KgCoOp         | 80.93     | 73.88    | 77.25 |
-| KgCoOp w/ DePT | 83.62     | 75.04    | 79.10 |
-| MaPLe          | 83.54     | 73.76    | 78.35 |
-| MaPLe w/ DePT  | 84.85     | 74.82    | 79.52 |
+| Name           | Base Acc. | New Acc.  | H         |
+| :------------- | :-------- | :-------- | :-------- |
+| CoOp           | 81.50     | 69.77     | 75.18     |
+| CoOp w/ DePT   | **83.66** | **71.82** | **77.29** |
+| CoCoOp         | 81.18     | 72.18     | 76.42     |
+| CoCoOp w/ DePT | **83.80** | **72.89** | **77.97** |
+| KgCoOp         | 80.93     | 73.88     | 77.25     |
+| KgCoOp w/ DePT | **83.62** | **75.04** | **79.10** |
+| MaPLe          | 83.54     | 73.76     | 78.35     |
+| MaPLe w/ DePT  | **84.85** | **74.82** | **79.52** |
 
 **Cross Dataset Transfer Performance**
 
@@ -52,13 +52,13 @@ Results reported below show accuracy for source dataset imagenet and other 10 ta
 | Name           | Source Acc. | Target Acc. |
 | :------------- | :---------- | :---------- |
 | CoOp           | 71.80       | 64.40       |
-| CoOp w/ DePT   | 72.63       | 65.02       |
+| CoOp w/ DePT   | **72.63**   | **65.02**   |
 | CoCoOp         | 71.17       | 65.73       |
-| CoCoOp w/ DePT | 72.77       | 65.88       |
+| CoCoOp w/ DePT | **72.77**   | **65.88**   |
 | KgCoOp         | 71.17       | 65.06       |
-| KgCoOp w/ DePT | 72.77       | 65.55       |
+| KgCoOp w/ DePT | **72.77**   | **65.55**   |
 | MaPLe          | 72.47       | 64.17       |
-| MaPLe w/ DePT  | 73.27       | 64.56       |
+| MaPLe w/ DePT  | **73.27**   | **64.56**   |
 
 ----
 
@@ -146,12 +146,12 @@ If you want to add your own models, you'll need to write your models in the `tra
 
 Model checkpoint will be updated soon!
 
-| Name           | Base Acc. | New Acc. | H     | Checkpoints | 
-| :------------- | :-------- | :------- | :---- | :---------|
-| CoOp w/ DePT   | 83.66     | 71.82    | 77.29 | [link]() |
-| CoCoOp w/ DePT | 83.80     | 72.89    | 77.97 | [link]() | 
-| KgCoOp w/ DePT | 83.62     | 75.04    | 79.10 | [link]() |
-| MaPLe w/ DePT  | 84.85     | 74.82    | 79.52 | [link]() | 
+| Name           | Base Acc. | New Acc. | H     | Checkpoints |
+| :------------- | :-------- | :------- | :---- | :---------- |
+| CoOp w/ DePT   | 83.66     | 71.82    | 77.29 | [link]()    |
+| CoCoOp w/ DePT | 83.80     | 72.89    | 77.97 | [link]()    |
+| KgCoOp w/ DePT | 83.62     | 75.04    | 79.10 | [link]()    |
+| MaPLe w/ DePT  | 84.85     | 74.82    | 79.52 | [link]()    |
 
 ----
 
