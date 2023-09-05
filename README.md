@@ -22,9 +22,9 @@ vision-language pre-trained models to downstream tasks. A plethora of methods ha
 
 # Main Contributions
 
-1. We provide an insightful view to analyze the BNT problem in prompt tuning, and for the first time reveal that the BNT stems from the channel bias issue.
-2. We propose the DePT framework to tackle the BNT problem from a feature decoupling perspective, and DePT is orthogonal to existing prompt tuning methods. 
-3. We perform experiments on 11 diverse datasets and show that DePT consistently enhances the performance of a broad spectrum of baseline methods1.
+> 1. We provide an insightful view to analyze the BNT problem in prompt tuning, and for the first time reveal that the BNT stems from the channel bias issue.
+> 2. We propose the DePT framework to tackle the BNT problem from a feature decoupling perspective, and DePT is orthogonal to existing prompt tuning methods. 
+> 3. We perform experiments on 11 diverse datasets and show that DePT consistently enhances the performance of a broad spectrum of baseline methods1.
 
 ----
 
