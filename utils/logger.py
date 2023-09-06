@@ -6,6 +6,7 @@ import os.path as osp
 
 from dassl.utils.tools import mkdir_if_missing
 
+# modify print function which will flush instantly
 print = functools.partial(print, flush=True)
 
 

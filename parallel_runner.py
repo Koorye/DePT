@@ -28,9 +28,11 @@ class ParallelRunner(object):
         self.mail = MailClient(self.mail_cfg)
 
     def run(self):
+        """ main method """
         grid_search_cfg = self.grid_search_cfg
         output_cfg = self.output_cfg
         
+        # remove useless directories
         remove_dirs = [output_cfg[name] for name in output_cfg['remove_dirs']]
         
         for dir_ in remove_dirs:
@@ -45,11 +47,13 @@ class ParallelRunner(object):
         start_time = datetime.datetime.now()
 
         try:
+            # main
             if grid_search_cfg['enable']:
                 result_paths = self.run_grid_serach() 
             else:
                 result_paths = [self.run_single()]
         except:
+            # handle exception, contents of exception will be sent to your email
             end_time = datetime.datetime.now()
             contents = [f'<b>Training tasks FAILED!</b> Time cost: {end_time - start_time}\n\n', 
                         '<b>Exception is following above:</b>\n']
@@ -62,6 +66,7 @@ class ParallelRunner(object):
             self.mail.send('Training Tasks FAILED!', contents)
             return
 
+        # after finished, results will be sent to your email
         end_time = datetime.datetime.now()
         contents = [f'<b>Training tasks FINISHED!</b> Time cost: {end_time - start_time}\n\n', 
                     '<b>Results are following above:</b>\n']
@@ -75,9 +80,11 @@ class ParallelRunner(object):
         self.mail.send('Training Tasks FINISHED!', contents)
             
     def run_grid_serach(self):
+        """ run if grid search is enabled """
         output_cfg = self.output_cfg
         root = output_cfg['root']
 
+        # parse gird search params
         dirnames, opts_list = self.get_grid_search_opts()
         
         print('Grid search opts:')
@@ -88,6 +95,7 @@ class ParallelRunner(object):
         result_paths = []
         
         for idx, (dirname, opts) in enumerate(zip(dirnames, opts_list)):
+            # run single task for each grid search param group
             print(f'[{idx + 1} / {len(dirnames)}] Running task {opts}\n')
             output_cfg['root'] = osp.join(root, dirname)
             
@@ -102,16 +110,20 @@ class ParallelRunner(object):
         grid_search_cfg = self.grid_search_cfg
         output_cfg = self.output_cfg
         
+        # get command
         if cfg['mode'] == 'b2n':
             commands = self.get_base_to_new_commands(opts)
         else:
             commands = self.get_cross_dataset_commands(opts)
-            
+        
+        # add command
         for command in commands:
             self.allocater.add_command(command)
         
+        # run command
         self.allocater.run()
         
+        # save result
         if not grid_search_cfg['enable']:
             filename = '{}-{}-{}.csv'.format(cfg['mode'], train_cfg['trainer'], train_cfg['cfg'])
         else:
@@ -180,14 +192,14 @@ class ParallelRunner(object):
 
         commands = []
         
-        # training on all datasets
+        # training on image
         load_dataset = 'imagenet'
         for seed in seeds:
             cmd = get_command(data_root, seed, trainer, load_dataset, cfg, root,
                               shots, load_dataset, loadep, opts, mode='xd', train=True)
             commands.append(cmd)
 
-        # testing on all datasets
+        # testing on other datasets
         for dataset in datasets:
             for seed in seeds:
                 cmd = get_command(data_root, seed, trainer, dataset, cfg, root,

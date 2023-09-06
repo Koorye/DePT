@@ -1,3 +1,4 @@
+# save coop inference features, for channel importance statistics
 from dassl.engine import TRAINER_REGISTRY
 
 from .coop import CoOp

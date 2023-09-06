@@ -1,3 +1,4 @@
+# save coop w/ DePT inference features, for channel importance statistics
 from dassl.engine import TRAINER_REGISTRY
 
 from .elp_coop import ExtrasLinearProbeCoOp

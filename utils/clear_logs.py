@@ -1,3 +1,4 @@
+# a tool for clearing logs, you can ignore it
 import argparse
 import os
 import os.path as osp

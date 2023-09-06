@@ -1,3 +1,4 @@
+# CoOp w/ DePT
 import os
 import os.path as osp
 import torch
@@ -28,13 +29,17 @@ class CustomCLIP(CustomCLIP_):
         film_cfg = self.film_cfg
 
         if film_cfg.LINEAR_PROBE:
+            # cwT module
             self.film_lp_img = FiLM(clip_dim)
             self.film_lp_text = FiLM(clip_dim)
         
+        # for base to new, base classes will be 'base'
+        # for cross dataset, classes from ImageNet will be 'base'
         if (self.subsample_classes == 'base') \
         or (self.subsample_classes == 'all' and 'ImageNet' in self.dataset):
             assert self.lp_cfg.TYPE in ['similarity', 'linear']
 
+            # linear classifier
             if self.lp_cfg.TYPE == 'similarity':
                 self.linear_probe_proj = nn.Identity()
             elif self.lp_cfg.TYPE == 'linear':
@@ -50,24 +55,30 @@ class CustomCLIP(CustomCLIP_):
             return self._forward_new(img)
 
     def _forward_base(self, img, labels=None):
+        """ forward function for base classes """
         text_feats, img_feats = self._forward_feats(img)
         
+        # forward similartiy and linear logits
         logits = self._forward_logits_similarity(text_feats, img_feats)
         logits_lp, labels_lp = self._forward_logits_linear_probe(text_feats, img_feats, labels)
         
         if self.prompt_learner.training:
+            # while training, return loss of both logits
             return self._loss(logits, labels, logits_lp, labels_lp)
         
         if not self.lp_cfg.TEST_TIME_FUSION:
             return logits_lp
 
+        # while inference, fusion both logits and return
         lp_weight = self.lp_cfg.WEIGHT
         logits = (1 - lp_weight) * logits + lp_weight * logits_lp
         return logits
     
     def _forward_new(self, img):
+        """ forward function for new classes """
         assert not self.prompt_learner.training
         
+        # for new classes, only forward similarity logits
         text_feats, img_feats = self._forward_feats(img)
         logits = self._forward_logits_similarity(text_feats, img_feats)
         return logits
@@ -82,6 +93,7 @@ class CustomCLIP(CustomCLIP_):
         return text_feats, img_feats
     
     def _forward_logits_similarity(self, text_feats, img_feats):
+        # normalize and calcute cosine similarity
         text_feats = text_feats / text_feats.norm(dim=-1, keepdim=True)
         img_feats = img_feats / img_feats.norm(dim=-1, keepdim=True)
         logit_scale = self.logit_scale.exp()
@@ -89,22 +101,21 @@ class CustomCLIP(CustomCLIP_):
         return logits
     
     def _forward_logits_linear_probe(self, text_feats, img_feats, labels):
+        # cwT module
         if self.film_cfg.LINEAR_PROBE:
             text_feats = self.film_lp_text(text_feats)
             img_feats = self.film_lp_img(img_feats)
 
+        # while new head is similarity head, use similarity forward function
         if self.lp_cfg.TYPE == 'similarity':
-            text_feats = text_feats / text_feats.norm(dim=-1, keepdim=True)
-            img_feats = img_feats / img_feats.norm(dim=-1, keepdim=True)
-            logit_scale = self.logit_scale.exp()
-            logits = logit_scale * img_feats @ text_feats.t()
-            return logits, labels
+            return self._forward_logits_similarity(text_feats, img_feats), labels
  
-        # if labels is None:
-        if True:
+        if labels is None:
+            # while inference, forward image features only
             all_feats = img_feats
             all_labels = labels
         else:
+            # while training, image features and text features will be concated to train classifier
             text_feats = text_feats[labels]
             all_feats = torch.cat([text_feats, img_feats])
             all_labels = torch.cat([labels, labels])
@@ -113,6 +124,7 @@ class CustomCLIP(CustomCLIP_):
         return all_logits, all_labels
     
     def _loss(self, logits, labels, logits_lp, labels_lp):
+        # calculate similarity loss and linear loss
         loss_cls = F.cross_entropy(logits, labels)
         loss_cls_lp = F.cross_entropy(logits_lp, labels_lp)
 
@@ -250,19 +262,26 @@ class ExtrasLinearProbeCoOp(CoOp):
 
             print("Loading weights to {} " 'from "{}" (epoch = {})'.format(name, model_path, epoch))
 
+            # for some dataset in domain generalization, number of target classes is different from number of source classes
+            # thus a mapping must be created to preserve the required class weights
             if self.cfg.DATASET.NAME in ['ImageNetA', 'ImageNetR']:
                 from datasets.imagenet import ImageNet
                 from dassl.utils import listdir_nohidden
 
+                # read classes from source dataset
                 dataset = self.dm.dataset
                 text_file = osp.join(dataset.dataset_dir, "classnames.txt")
                 all_folders = ImageNet.read_classnames(text_file).keys()
 
+                # read classes from target dataset
                 TO_BE_IGNORED = ["README.txt"]
                 folders = listdir_nohidden(dataset.image_dir, sort=True)
                 folders = [f for f in folders if f not in TO_BE_IGNORED]
+
+                # find that which class from target dataset is in source dataset
                 is_reserves = [f in folders for f in all_folders]
 
+                # only reserve required class weights
                 print(f'State dict is CLIPPED to match the shape of target dataset {self.cfg.DATASET.NAME}!')
                 state_dict['linear_probe_proj.weight'] = state_dict['linear_probe_proj.weight'][is_reserves]
                 state_dict['linear_probe_proj.bias'] = state_dict['linear_probe_proj.bias'][is_reserves]

@@ -67,7 +67,7 @@ def reset_cfg(cfg, args):
 def extend_cfg(cfg):
     from yacs.config import CfgNode as CN
 
-    # 调整部分模块的学习率，其他模块的学习率维持不变
+    # optim settings, new layers' lr will be setted to 0.0035 * 6.5
     cfg.OPTIM.LR_EXP = 6.5
     cfg.OPTIM.STAGED_LR = True
     cfg.OPTIM.NEW_LAYERS = ['linear_probe', 'film']
@@ -75,27 +75,23 @@ def extend_cfg(cfg):
     cfg.OPTIM.BASE_LR_MULT = 1.0
     cfg.OPTIM.MAX_EPOCH = 10
     
-    # 保存checkpoint间隔
+    cfg.DATASET.SUBSAMPLE_CLASSES = "all"  # all, base or new
     cfg.TRAIN.CHECKPOINT_FREQ = -1
 
-    # 训练器设置，如需要更新的参数
+    # modules which need to update
     cfg.TRAINER.NAMES_TO_UPDATE = ['prompt_learner', 'linear_probe', 'film']
 
-    # 数据集设置    
-    cfg.DATASET.SUBSAMPLE_CLASSES = "all"  # all, base or new
-
-    # Linear Probe Head设置
+    # linear classifier settings
     cfg.TRAINER.LINEAR_PROBE = CN()
     cfg.TRAINER.LINEAR_PROBE.TYPE = 'linear'
     cfg.TRAINER.LINEAR_PROBE.WEIGHT = 0.7
-    # cfg.TRAINER.LINEAR_PROBE.TEST_TIME_FUSION = True
-    cfg.TRAINER.LINEAR_PROBE.TEST_TIME_FUSION = False
+    cfg.TRAINER.LINEAR_PROBE.TEST_TIME_FUSION = True
 
-    # FiLM设置
+    # cwT module settings
     cfg.TRAINER.FILM = CN()
     cfg.TRAINER.FILM.LINEAR_PROBE = True
 
-    # CoOp设置
+    # CoOp settings
     cfg.TRAINER.COOP = CN()
     cfg.TRAINER.COOP.N_CTX = 16  # number of context vectors
     cfg.TRAINER.COOP.CSC = False  # class-specific context
@@ -105,13 +101,13 @@ def extend_cfg(cfg):
     cfg.TRAINER.COOP.ALPHA = 1.0 # for KgCoOp but NOT USE
     cfg.TRAINER.COOP.W = 2.0 # for KgCoOp
 
-    # CoCoOp设置
+    # CoCoOp settings
     cfg.TRAINER.COCOOP = CN()
     cfg.TRAINER.COCOOP.N_CTX = 4  # number of context vectors
     cfg.TRAINER.COCOOP.CTX_INIT = "a photo of a"  # initialization words
     cfg.TRAINER.COCOOP.PREC = "fp16"  # fp16, fp32, amp
 
-    # MaPLe设置
+    # MaPLe settings
     cfg.TRAINER.MAPLE = CN()
     cfg.TRAINER.MAPLE.N_CTX = 2  # number of context vectors
     cfg.TRAINER.MAPLE.CTX_INIT = "a photo of a"  # initialization words
@@ -175,6 +171,7 @@ def main(args):
         if not args.no_train:
             trainer.train()
     except:
+        # handle exception, contents of exception will be saved to exception_path
         e = traceback.format_exc()
         with open(exception_path, 'w') as f:
             f.write(e)

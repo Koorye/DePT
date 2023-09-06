@@ -1,3 +1,4 @@
+# a tool for parallelizing running commands, where multiple commands are assigned to multiple graphics cards
 import datetime
 import os
 from threading import Thread

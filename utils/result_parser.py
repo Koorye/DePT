@@ -1,3 +1,4 @@
+# result parser for base to new and cross dataset tasks, result will be saved as csv
 import argparse
 import os
 import os.path as osp

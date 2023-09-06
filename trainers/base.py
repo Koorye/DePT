@@ -3,7 +3,7 @@ import time
 from dassl.engine.trainer import MetricMeter, AverageMeter, SummaryWriter
 from dassl.engine.trainer import TrainerX as TrainerX_
 
-from utils.logger import print
+from utils.logger import print # modify print function
 
 
 class TrainerX(TrainerX_):

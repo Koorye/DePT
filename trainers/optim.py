@@ -1,3 +1,4 @@
+""" modified from dassl.optim """
 import warnings
 import torch
 import torch.nn as nn
@@ -34,6 +35,7 @@ def build_optimizer(model, optim_cfg, param_groups=None):
 
     if param_groups is None:
         if staged_lr:
+            # modify the function of lr_mult
             exp = optim_cfg.LR_EXP
             lr *= exp
             base_lr_mult /= exp
@@ -73,7 +75,8 @@ def build_optimizer(model, optim_cfg, param_groups=None):
             param_groups = [{'params': base_params,
                              'lr': lr * base_lr_mult}, 
                             {'params': new_params}]
-                        
+
+            # return lr of each layer
             infos = [{'layers': base_layers, 
                       'lr': lr * base_lr_mult},
                      {'layers': new_layers_,

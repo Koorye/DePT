@@ -134,7 +134,7 @@ python parallel_runner.py --cfg maple
 python parallel_runner.py --cfg maple_dept
 ```
 
-After running, the output will be in the `outputs/` directory, and the results will be tallied in the `results/` directory as csv.
+After running, the output will be in the `outputs/` directory, the results will be tallied in the `results/` directory as csv, and a mail will be sent to email address.
 
 If you want to add your own models, you'll need to write your models in the `trainers/` directory and register them in dassl, then configure the settings in the `configs/` directory and `train.py` file, and add your new tasks to the `configs.py` file. Then you can run `python parallel_runner.py --cfg your_model` to run our own model.
 
