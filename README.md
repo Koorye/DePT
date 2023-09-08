@@ -34,7 +34,7 @@ vision-language pre-trained models to downstream tasks. A plethora of methods ha
 
 Results reported below show accuracy for base and novel classes for across 11 recognition datasets averaged over 3 seeds.
 
-<img src="examples/performance.png" width="30%" />
+<img src="examples/performance.png" width="50%" />
 
 | Name           | Base Acc. | New Acc.  | H         |
 | :------------- | :-------- | :-------- | :-------- |
