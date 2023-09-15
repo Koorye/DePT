@@ -1,6 +1,6 @@
 # DePT: Decoupled Prompt Tuning
 
-Offical implementation of the paper [DePT: Decoupled Prompt Tuning]()
+Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxiv.org/abs/2309.07439)
 
 ----
 
