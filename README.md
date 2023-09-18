@@ -49,7 +49,7 @@ Results reported below show accuracy for source dataset imagenet and other 10 ta
 
 Results reported below show accuracy for source dataset imagenet and 4 other target datasets including imagenetv2, imagenet-sketch, imagenet-a and imagenet-r average over 3 seeds.
 
-![Domain Gneralization Performance](examples/domain_generalization_performance.png)
+<img src="examples/domain_generalization_performance.png" width="50%">
 
 **Base to New Generalization Performane Under Different Shots**
 
