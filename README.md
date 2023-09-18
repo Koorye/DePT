@@ -37,8 +37,8 @@ We are doing our best to improve this work. If you have any questions or suggest
 
 # Results
 
-<div style="text-align: center">
-<img src="examples/performance.png" width="50%" />
+<div align="center">
+  <img src="examples/performance.png" width="50%" />
 </div>
 
 **Base-to-New Generalization Performance**
