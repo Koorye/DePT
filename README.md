@@ -1,6 +1,6 @@
 # DePT: Decoupled Prompt Tuning
 
-Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxiv.org/abs/2309.07439)
+Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxiv.org/abs/2309.07439).
 
 **Note:** We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue on this repo or contact us at jizhang.jim@gmail.com.
 
@@ -34,7 +34,7 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 # Results
 
 <div align="center">
-  <img src="examples/performance.png" width="50%" />
+  <img src="examples/performance.png" width="40%" />
 </div>
 
 **Base-to-New Generalization Performance**
@@ -164,4 +164,4 @@ If you use our work, please consider citing
 
 # Acknowledgements
 
-Our code is based on [CoOp, CoCoOp](https://github.com/KaiyangZhou/CoOp), [KgCoOp](https://github.com/htyao89/KgCoOp) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) repository. We thank the authors for releasing their code. If you use our model and code, please consider citing these works as well.
+Our code is based on [CoOp, CoCoOp](https://github.com/KaiyangZhou/CoOp), [KgCoOp](https://github.com/htyao89/KgCoOp) and [MaPLe](https://github.com/muzairkhattak/multimodal-prompt-learning) repositories. We thank the authors for releasing their code. If you use our model and code, please consider citing these works as well.
