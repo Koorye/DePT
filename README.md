@@ -33,28 +33,19 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 <img src="examples/performance.svg" width="50%" />
 
-**Base to New Generalization Performance**
+**Base-to-New Generalization Performance**
 
-Results reported below show accuracy for base and novel classes for across 11 recognition datasets averaged over 3 seeds.
+![Base-to-New Generalization](examples/base_to_new_performance.png)
 
-![Base to New Performance](examples/base_to_new_performance.png)
+**Cross-Dataset Generalization Performance**
 
-**Cross Dataset Transfer Performance**
-
-Results reported below show accuracy for source dataset imagenet and other 10 target datasets averaged over 3 seeds.
-
-![Cross Dataset Transfer Performance](examples/cross_dataset_performance.png)
+![Cross-Dataset Generalization](examples/cross_dataset_performance.png)
 
 **Domain Generalization Performance**
 
-Results reported below show accuracy for source dataset imagenet and 4 other target datasets including imagenetv2, imagenet-sketch, imagenet-a and imagenet-r average over 3 seeds.
-
 <img src="examples/domain_generalization_performance.png" width="50%">
 
-**Base to New Generalization Performane Under Different Shots**
-
-Results reported below show accuracy for base and novel classes for across 11 recognition datasets under 4,8,16-shots averaged over 3 seeds.
-
+**Base-to-New Generalization Performane Under Different Shots**
 
 ![Few-shot Performance](examples/few_shot_performance.png)
 
