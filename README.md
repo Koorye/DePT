@@ -13,9 +13,15 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 ----
 
+# Note
+
+We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue on this repo or contact us at jizhang.jim@gmail.com.
+
+----
+
 # Highlights
 
-![Framework](examples/framework.svg)
+![Framework](examples/framework.png)
 
 > **Abstract** Prompt tuning has shown great success in adapting large vision-language pre-trained models to downstream tasks. A plethora of methods have been proposed to tackle the base- new tradeoff (BNT) dilemma, i.e., the better the adapted model generalizes to the base (a.k.a. target) task, the worse it generalizes to new tasks, and vice versa. Despite this, the BNT problem is still far from being resolved and its underlying mechanisms are poorly understood. In this work, we bridge this gap by proposing Decoupled Prompt Tuning (DePT), a first framework tackling the BNT problem from a feature decoupling perspective. Specifically, through an in-depth analysis on the learned features of the base and new tasks, we observe that the BNT stems from a channel bias issue, i.e., the vast majority of feature channels are occupied by base-specific knowledge, resulting in the collapse oftask-shared knowledge important to new tasks. To address this, DePT decouples base-specific knowledge from feature channels into an isolated feature space during prompt tuning, so as to maximally preserve task-shared knowledge in the original feature space for achieving better zero-shot generalization on new tasks. DePT is orthogonal to existing prompt tuning methods, hence it can tackle the BNT problem for all of them. Extensive experiments on 11 datasets show the strong flexibility and effectiveness of DePT.
 
@@ -31,7 +37,9 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 # Results
 
-<img src="examples/performance.svg" width="50%" />
+<div style="text-align: center">
+<img src="examples/performance.png" width="50%" />
+</div>
 
 **Base-to-New Generalization Performance**
 
@@ -155,12 +163,6 @@ If you use our work, please consider citing
   year={2023}
 }
 ```
-
-----
-
-# Note
-
-We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue on this repo or contact us at jizhang.jim@gmail.com.
 
 ----
 
