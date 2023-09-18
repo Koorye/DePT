@@ -6,14 +6,16 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 # News
 
-- (Sep 05, 2022)
+- (Sep 14, 2023)
+  - Our paper is published on arXiv.
+- (Sep 05, 2023)
   - Training and evaluation codes for DePT are released.
 
 ----
 
 # Highlights
 
-![Framework](examples/framework.png)
+![Framework](examples/framework.svg)
 
 > **Abstract** Prompt tuning has shown great success in adapting large vision-language pre-trained models to downstream tasks. A plethora of methods have been proposed to tackle the base- new tradeoff (BNT) dilemma, i.e., the better the adapted model generalizes to the base (a.k.a. target) task, the worse it generalizes to new tasks, and vice versa. Despite this, the BNT problem is still far from being resolved and its underlying mechanisms are poorly understood. In this work, we bridge this gap by proposing Decoupled Prompt Tuning (DePT), a first framework tackling the BNT problem from a feature decoupling perspective. Specifically, through an in-depth analysis on the learned features of the base and new tasks, we observe that the BNT stems from a channel bias issue, i.e., the vast majority of feature channels are occupied by base-specific knowledge, resulting in the collapse oftask-shared knowledge important to new tasks. To address this, DePT decouples base-specific knowledge from feature channels into an isolated feature space during prompt tuning, so as to maximally preserve task-shared knowledge in the original feature space for achieving better zero-shot generalization on new tasks. DePT is orthogonal to existing prompt tuning methods, hence it can tackle the BNT problem for all of them. Extensive experiments on 11 datasets show the strong flexibility and effectiveness of DePT.
 
@@ -29,37 +31,32 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 # Results
 
+<img src="examples/performance.svg width="50%" />
+
 **Base to New Generalization Performance**
 
 Results reported below show accuracy for base and novel classes for across 11 recognition datasets averaged over 3 seeds.
 
-<img src="examples/performance.png" width="50%" />
-
-| Name           | Base Acc. | New Acc.  | H         |
-| :------------- | :-------- | :-------- | :-------- |
-| CoOp           | 81.50     | 69.77     | 75.18     |
-| CoOp w/ DePT   | **83.66** | **71.82** | **77.29** |
-| CoCoOp         | 81.18     | 72.18     | 76.42     |
-| CoCoOp w/ DePT | **83.80** | **72.89** | **77.97** |
-| KgCoOp         | 80.93     | 73.88     | 77.25     |
-| KgCoOp w/ DePT | **83.62** | **75.04** | **79.10** |
-| MaPLe          | 83.54     | 73.76     | 78.35     |
-| MaPLe w/ DePT  | **84.85** | **74.82** | **79.52** |
+![Base to New Performance](examples/base_to_new_performance.png)
 
 **Cross Dataset Transfer Performance**
 
 Results reported below show accuracy for source dataset imagenet and other 10 target datasets averaged over 3 seeds.
 
-| Name           | Source Acc. | Target Acc. |
-| :------------- | :---------- | :---------- |
-| CoOp           | 71.80       | 64.40       |
-| CoOp w/ DePT   | **72.63**   | **65.02**   |
-| CoCoOp         | 71.17       | 65.73       |
-| CoCoOp w/ DePT | **72.77**   | **65.88**   |
-| KgCoOp         | 71.17       | 65.06       |
-| KgCoOp w/ DePT | **72.77**   | **65.55**   |
-| MaPLe          | 72.47       | 64.17       |
-| MaPLe w/ DePT  | **73.27**   | **64.56**   |
+![Cross Dataset Transfer Performance](examples/cross_dataset_performance.png)
+
+**Domain Generalization Performance**
+
+Results reported below show accuracy for source dataset imagenet and 4 other target datasets including imagenetv2, imagenet-sketch, imagenet-a and imagenet-r average over 3 seeds.
+
+![Domain Gneralization Performance](examples/domain_generalization_performance.png)
+
+**Base to New Generalization Performane Under Different Shots**
+
+Results reported below show accuracy for base and novel classes for across 11 recognition datasets under 4,8,16-shots averaged over 3 seeds.
+
+
+![Few-shot Performance](examples/few_shot_performance.png)
 
 ----
 
@@ -157,13 +154,22 @@ Model checkpoint will be updated soon!
 ----
 
 # Citation
-If you use our work, please consider citing...
+
+If you use our work, please consider citing
+```
+@article{zhang2023dept,
+  title={DePT: Decoupled Prompt Tuning},
+  author={Ji Zhang, Shihan Wu, Lianli Gao, Hengtao Shen and Jingkuan Song},
+  journal={arXiv preprint arXiv:2309.07439},
+  year={2023}
+}
+```
 
 ----
 
-# Contact
+# Note
 
-If you have any questions, please create an issue on this repository or contact at somebody@example.com
+We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue on this repo or contact us at jizhang.jim@gmail.com.
 
 ----
 
