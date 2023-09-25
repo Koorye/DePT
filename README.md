@@ -2,7 +2,7 @@
 
 Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxiv.org/abs/2309.07439).
 
-**Note:** We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue on this repo or contact us at jizhang.jim@gmail.com.
+**Note:** We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue in this repo or contact us at jizhang.jim@gmail.com.
 
 ----
 
