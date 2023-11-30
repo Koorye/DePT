@@ -8,10 +8,10 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 # News
 
-- (Sep 14, 2023)
-  - Our paper is published on arXiv.
-- (Sep 05, 2023)
+- (Nov. 05, 2023)
   - Training and evaluation codes for DePT are released.
+- (Sep. 14, 2023)
+  - Our paper is published on arXiv.
 
 ----
 
