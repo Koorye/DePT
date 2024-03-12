@@ -8,9 +8,12 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 # News
 
+- (Feb. 27, 2024)
+  - Our paper is accepted at CVPR 2024!
 - (Nov. 05, 2023)
   - Training and evaluation codes for DePT are released.
 - (Sep. 14, 2023)
+
   - Our paper is published on arXiv.
 
 ----
@@ -37,21 +40,15 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
   <img src="examples/performance.png" width="40%" />
 </div>
 
-**Base-to-New Generalization Performance**
+**Flexibility and Effectiveness of DePT**
+
+Our DePT is orthogonal to both prompt tuning and adapter tuning approaches, therefore can improve all of them.
 
 ![Base-to-New Generalization](examples/base_to_new_performance.png)
 
 **Cross-Dataset Generalization Performance**
 
 ![Cross-Dataset Generalization](examples/cross_dataset_performance.png)
-
-**Domain Generalization Performance**
-
-<img src="examples/domain_generalization_performance.png" width="50%">
-
-**Base-to-New Generalization Performane Under Different Shots**
-
-<img src="examples/few_shot_performance.png" width="90%">
 
 ----
 
