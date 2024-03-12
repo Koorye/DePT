@@ -34,15 +34,15 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 
 ----
 
-# Results
+# Flexibility and Effectiveness
+
+Our DePT is orthogonal to both prompt tuning and adapter tuning approaches, therefore can improve all of them.
 
 <div align="center">
   <img src="examples/performance.png" width="40%" />
 </div>
 
-**Flexibility and Effectiveness of DePT**
-
-Our DePT is orthogonal to both prompt tuning and adapter tuning approaches, therefore can improve all of them.
+**Base-to-New Generalization Performance**
 
 ![Base-to-New Generalization](examples/base_to_new_performance.png)
 
