@@ -9,11 +9,15 @@ Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxi
 # News
 
 - (Feb. 27, 2024)
+  
   - Our paper is accepted at CVPR 2024!
-- (Nov. 05, 2023)
-  - Training and evaluation codes for DePT are released.
-- (Sep. 14, 2023)
 
+- (Nov. 05, 2023)
+  
+  - Training and evaluation codes for DePT are released.
+
+- (Sep. 14, 2023)
+  
   - Our paper is published on arXiv.
 
 ----
@@ -128,26 +132,12 @@ After running, the output will be in the `outputs/` directory, the results will 
 
 If you want to add your own models, you'll need to write your models in the `trainers/` directory and register them in dassl, then configure the settings in the `configs/` directory and `train.py` file, and add your new tasks to the `configs.py` file. Then you can run `python parallel_runner.py --cfg your_model` to run our own model.
 
-
-
-----
-
-# Model Zoo
-
-Model checkpoint will be updated soon!
-
-| Name           | Base Acc. | New Acc. | H     | Checkpoints |
-| :------------- | :-------- | :------- | :---- | :---------- |
-| CoOp w/ DePT   | 83.66     | 71.82    | 77.29 | [link]()    |
-| CoCoOp w/ DePT | 83.80     | 72.89    | 77.97 | [link]()    |
-| KgCoOp w/ DePT | 83.62     | 75.04    | 79.10 | [link]()    |
-| MaPLe w/ DePT  | 84.85     | 74.82    | 79.52 | [link]()    |
-
 ----
 
 # Citation
 
 If you use our work, please consider citing
+
 ```
 @article{zhang2023dept,
   title={DePT: Decoupled Prompt Tuning},
