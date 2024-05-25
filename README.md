@@ -1,5 +1,7 @@
 # DePT: Decoupled Prompt Tuning
 
+Our DePT established the following remarkable results without borrowing Extra Knowledge from stronger models (e.g., via KD) or employing extra Data Augmentation strategies.
+
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-eurosat)](https://paperswithcode.com/sota/prompt-engineering-on-eurosat?p=dept-decoupled-prompt-tuning)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-dtd)](https://paperswithcode.com/sota/prompt-engineering-on-dtd?p=dept-decoupled-prompt-tuning)
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-food-101)](https://paperswithcode.com/sota/prompt-engineering-on-food-101?p=dept-decoupled-prompt-tuning)
