@@ -153,13 +153,12 @@ If you want to add your own models, you'll need to write your models in the `tra
 If you use our work, please consider citing
 
 ```
-@inproceedings{zhang2024dept,
-  title={Dept: Decoupled prompt tuning},
-  author={Zhang, Ji and Wu, Shihan and Gao, Lianli and Shen, Heng Tao and Song, Jingkuan},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={12924--12933},
-  year={2024}
-}v
+@article{zhang2023dept,
+  title={DePT: Decoupled Prompt Tuning},
+  author={Ji Zhang, Shihan Wu, Lianli Gao, Hengtao Shen and Jingkuan Song},
+  journal={arXiv preprint arXiv:2309.07439},
+  year={2023}
+}
 ```
 
 ----
