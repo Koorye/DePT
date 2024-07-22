@@ -103,7 +103,7 @@ python setup.py develop
 ```
 cd ..
 
-git clone https://github.com/koorye/DePT.git
+git clone https://github.com/somebody/DePT.git
 cd DePT/
 
 pip install -r requirements.txt
