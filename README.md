@@ -2,18 +2,6 @@
 
 Our DePT established the following remarkable results without borrowing Extra Knowledge from stronger models (e.g., via KD) or employing extra Data Augmentation strategies.
 
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-eurosat)](https://paperswithcode.com/sota/prompt-engineering-on-eurosat?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-dtd)](https://paperswithcode.com/sota/prompt-engineering-on-dtd?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-food-101)](https://paperswithcode.com/sota/prompt-engineering-on-food-101?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-oxford-iiit-pet-dataset)](https://paperswithcode.com/sota/prompt-engineering-on-oxford-iiit-pet-dataset?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-sun397)](https://paperswithcode.com/sota/prompt-engineering-on-sun397?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-caltech-101)](https://paperswithcode.com/sota/prompt-engineering-on-caltech-101?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-imagenet)](https://paperswithcode.com/sota/prompt-engineering-on-imagenet?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-stanford-cars-1)](https://paperswithcode.com/sota/prompt-engineering-on-stanford-cars-1?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-ucf101)](https://paperswithcode.com/sota/prompt-engineering-on-ucf101?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-fgvc-aircraft)](https://paperswithcode.com/sota/prompt-engineering-on-fgvc-aircraft?p=dept-decoupled-prompt-tuning)
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/dept-decoupled-prompt-tuning/prompt-engineering-on-oxford-102-flower)](https://paperswithcode.com/sota/prompt-engineering-on-oxford-102-flower?p=dept-decoupled-prompt-tuning)
-
 Offical implementation of the paper [DePT: Decoupled Prompt Tuning](https://arxiv.org/abs/2309.07439).
 
 **Note:** We are doing our best to improve this work. If you have any questions or suggestions, please feel free to create an issue in this repo or contact us at jizhang.jim@gmail.com.
