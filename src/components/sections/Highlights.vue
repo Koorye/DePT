@@ -1,7 +1,5 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
-
-// 核心成果数据（与论文摘要中的数字保持一致）
+// 核心成果数据（与论文保持一致）
 const stats = [
   {
     value: '6',
@@ -28,24 +26,6 @@ const stats = [
     accent: false,
   },
 ]
-
-// 跨模型适配性：轮播展示不同骨干策略的仿真增益
-const policyGains = [
-  { policy: 'OpenVLA', value: '+50.6%' },
-  { policy: 'Octo', value: '+29.7%' },
-  { policy: 'π₀', value: '+8.9%' },
-]
-
-const gainIndex = ref(0)
-let gainTimer = null
-
-onMounted(() => {
-  gainTimer = setInterval(() => {
-    gainIndex.value = (gainIndex.value + 1) % policyGains.length
-  }, 2600)
-})
-
-onBeforeUnmount(() => clearInterval(gainTimer))
 </script>
 
 <template>
@@ -62,17 +42,6 @@ onBeforeUnmount(() => clearInterval(gainTimer))
             <div class="stat-value">{{ stat.value }}</div>
             <div class="stat-label">{{ stat.label }}</div>
             <div class="stat-sub">{{ stat.sub }}</div>
-          </div>
-
-          <!-- 跨模型适配性：不同策略增益轮播卡 -->
-          <div class="stat-card cycler">
-            <Transition name="gain" mode="out-in">
-              <div class="stat-value" :key="gainIndex">{{ policyGains[gainIndex].value }}</div>
-            </Transition>
-            <div class="stat-label">Simulation Gain</div>
-            <Transition name="gain" mode="out-in">
-              <div class="stat-sub" :key="gainIndex">{{ policyGains[gainIndex].policy }} · vs. baseline</div>
-            </Transition>
           </div>
         </div>
       </el-col>
@@ -126,19 +95,8 @@ onBeforeUnmount(() => clearInterval(gainTimer))
   color: var(--pcd-accent);
 }
 
-.stat-card.accent .stat-value,
-.stat-card.cycler .stat-value {
+.stat-card.accent .stat-value {
   color: #ffffff;
-}
-
-/* 轮播卡：渐变底色突出跨模型适配 */
-.stat-card.cycler {
-  background: linear-gradient(150deg, #7c5cf0, #3273dc);
-  border: none;
-}
-
-.stat-card.cycler:hover {
-  box-shadow: 0 12px 32px rgba(124, 92, 240, 0.4);
 }
 
 .stat-label {
@@ -149,8 +107,7 @@ onBeforeUnmount(() => clearInterval(gainTimer))
   margin-top: 6px;
 }
 
-.stat-card.accent .stat-label,
-.stat-card.cycler .stat-label {
+.stat-card.accent .stat-label {
   color: #ffffff;
 }
 
@@ -161,25 +118,8 @@ onBeforeUnmount(() => clearInterval(gainTimer))
   margin-top: 4px;
 }
 
-.stat-card.accent .stat-sub,
-.stat-card.cycler .stat-sub {
+.stat-card.accent .stat-sub {
   color: rgba(255, 255, 255, 0.85);
-}
-
-/* 轮播切换动画 */
-.gain-enter-active,
-.gain-leave-active {
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-.gain-enter-from {
-  opacity: 0;
-  transform: translateY(6px);
-}
-
-.gain-leave-to {
-  opacity: 0;
-  transform: translateY(-6px);
 }
 
 @media (max-width: 992px) {

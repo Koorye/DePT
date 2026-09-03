@@ -11,7 +11,6 @@ const more_research = 'https://koorye.github.io/home/#publications'
 
 // 页内锚点导航（与各 section 的 id 对应）
 const sections = [
-  { id: 'demos', label: 'Demos' },
   { id: 'poster', label: 'Poster' },
   { id: 'abstract', label: 'Abstract' },
   { id: 'method', label: 'Method' },

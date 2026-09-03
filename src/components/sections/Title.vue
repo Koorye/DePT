@@ -49,7 +49,7 @@ const addresses = [
   },
   {
     address_flag: "2",
-    name: "Southwest Jiaotong University",
+    name: "Shenzhen Institute for Advanced Study, UESTC",
     homepage: "https://github.com",
     // icon: "./icons/sjtu.jpg"
   },
@@ -65,15 +65,14 @@ const addresses = [
 const con_and_corresponding_author = "*Equal Contribution  †Corresponding author"
 
 const news = [
-  "🔥Jan 26, 2026: 🎉🎉Our paper has been accepted by ICLR 2026!🎉🎉",
-  "🔥Nov 20, 2025: LeRobot Version of PCD is now available on GitHub.",
-  "🔥May 23, 2025: Our paper has been updated for better clarity and readability. The optimized version is now available on arXiv.",
-  "🔥May 20, 2025: The paper is now available on arXiv."
+  "🔥Feb 27, 2024: 🎉🎉Our paper has been accepted by CVPR 2024!🎉🎉",
+  "🔥Nov 5, 2023: Training and evaluation codes for DePT are released.",
+  "🔥Sep 14, 2023: The paper is now available on arXiv."
 ]
 
 // 强调内容
 const emphases = [
-  "🎉🎉Our paper has been accepted by ICLR 2026!🎉🎉"
+  "🎉🎉Our paper has been accepted by CVPR 2024!🎉🎉"
 ]
 
 // 提供引导资料链接
