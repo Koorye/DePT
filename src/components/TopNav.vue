@@ -59,7 +59,7 @@ const papers: Paper[] = [
   {
     name: 'Skip Tuning: Pre-trained VLMs are Effective Adapters Themselves',
     venue: 'CVPR 2025',
-    link: 'https://github.com/Koorye/SkipTuning/',
+    link: 'https://koorye.github.io/SkipTuning/',
   },
   {
     name: 'A Closer Look at Conditional Prompt Tuning for VLMs',
