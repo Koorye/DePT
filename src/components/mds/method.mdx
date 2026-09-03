@@ -1,0 +1,7 @@
+**Framework.**
+DePT tackles the BNT problem from a *feature decoupling* perspective.
+During prompt tuning, base-specific knowledge is decoupled from feature channels into an isolated feature space via a **Channel Adjusted Transfer (CAT) head**,
+while the standard ITM head keeps task-shared knowledge in the original feature space.
+At inference on new tasks, only the ITM head is used for zero-shot generalization;
+on the base task, a **test-time knowledge fusion** strategy explores both base-specific and task-shared knowledge to boost performance.
+DePT is a **plug-and-play** component and is orthogonal to existing prompt tuning methods.
