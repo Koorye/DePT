@@ -67,7 +67,7 @@ const papers: Paper[] = [
     link: 'https://github.com/Koorye/CaPT/',
   },
   {
-    name: 'Decoupled Prompt Tuning',
+    name: 'DePT: Decoupled Prompt Tuning',
     venue: 'CVPR 2024',
     link: 'https://koorye.github.io/DePT/',
   },
