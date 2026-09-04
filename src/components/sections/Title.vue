@@ -18,6 +18,11 @@ const title_supp = ''
 // 作者清单（包含作者姓名、头像、主页、地址序号）
 const authors = [
   {
+    name: "Ji Zhang",
+    homepage: "https://github.com",
+    address_flag: "1*"
+  },
+  {
     name: "Shihan Wu",
     homepage: "https://Koorye.github.io/",
     address_flag: "1*"

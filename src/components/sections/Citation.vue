@@ -6,13 +6,14 @@ export default {
   data() {
     return {
       bibtex: [
-        "@inproceedings{wu2024dept,",
+        "@inproceedings{zhang2024dept,",
         "    title={DePT: Decoupled Prompt Tuning},",
-        "    author={Wu, Shihan and Gao, Lianli and Shen, Heng Tao and Song, Jingkuan},",
+        "    author={Zhang, Ji and Wu, Shihan and Gao, Lianli and Shen, Heng Tao and Song, Jingkuan},",
         "    booktitle={IEEE/CVF Conference on Computer Vision and Pattern Recognition},",
-        "    year={2024}",
+        "    year={2024},",
+        "    pages={12924--12933}",
         "}",
-      ],    }
+      ],   }
   },
   methods: {
     copyVal() {
